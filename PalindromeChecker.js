@@ -4,33 +4,11 @@ function palindrome(str) {
     str = str.replace(/[.,\/#!$%\^&\*;:{}|=\-_`~()]/g, "").split(" ").join("");
     str = str.toLowerCase();
     
-    let strMid = Math.floor(str.length / 2);
-    
-    // If the string length is impair, remove the middle
-    if ((str.length % 2) != 0) {
+    revStr = str.split("").reverse().join("");
 
-        str = str.substring(0, strMid) + str.substring(strMid+1, str.length);
-    }
-
-    // Initialise 2 empty strings
-    let leftStr = "";
-    let rightStr = "";
-
-    // Loop through the first half
-    for (let i = 0; i < strMid; i++) {
-
-        leftStr += str[i];
-    }
-
-    // Then loop through the second half from reverse
-    for (let j = str.length-1; j >= strMid; j--) {
-
-        rightStr += str[j];
-    }
-
-    console.log(leftStr, rightStr)
+    console.log(str, revStr)
     // If the string are equal return true, else false
-    if (leftStr == rightStr){
+    if (str == revStr){
 
         return true;
     }
@@ -39,7 +17,7 @@ function palindrome(str) {
 }
 
 
-// Regular test cases
+// Test Cases
 palindrome("eye");
 palindrome("race car");
 palindrome("not a palindrome");
